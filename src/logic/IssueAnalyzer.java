@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 import java.net.URL;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -43,10 +43,10 @@ public class IssueAnalyzer {
 		InputStream is = new URL(url).openStream();
 		
 		try {
-			BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+			BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
 			String jsonText = readAll(rd);
-			JSONObject json = new JSONObject(jsonText);
-			return json;
+			
+			return new JSONObject(jsonText);
 		} finally {
 			is.close();
 		}
@@ -58,7 +58,7 @@ public class IssueAnalyzer {
 	 */
 	public Map<String, Integer> prepareRecord(LocalDate[] dates) {
 
-		Map<String, Integer> record = new HashMap<String, Integer>();
+		Map<String, Integer> record = new HashMap<>();
 		
 		for (int i = 0; i < dates.length; i++) {
 			// check if record contains date[i]
@@ -103,7 +103,9 @@ public class IssueAnalyzer {
 	}
 
 	public static void main(String[] args) throws IOException, JSONException, InvalidRemoteException,TransportException, GitAPIException, ParseException {
-		Integer j = 0, i = 0, total = 1;
+		Integer j = 0;
+		Integer i = 0;
+		Integer total = 0;
 		
 		IssueAnalyzer issueAnalyzer = new IssueAnalyzer();
 		LocalDate[] dates = null;

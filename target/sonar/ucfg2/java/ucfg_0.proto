@@ -1,0 +1,53 @@
+
+?logic.IssueAnalyzer#readAll(Ljava/io/Reader;)Ljava/lang/String;U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java! !("4*À
+2U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java%! %(#ÈÊ
+U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java%! %(5
+%3java.lang.StringBuilder":java.lang.StringBuilder#append(C)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+""2	append(C)*
+3*Ç
+3U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java% %(ùö
+U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java% %(	
+%2int"java.io.Reader#read()I*
+
+rdjava.io.Reader2read()*
+2
+1*æ
+4U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java" "((íè
+U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java" "(&
+%0java.lang.StringBuilder"java.lang.StringBuilder§
+°
+U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java" "((
+%1"!java.lang.StringBuilder#<init>()V*
+
+%0java.lang.StringBuilder†
+ù
+U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java" "()
+sbjava.lang.StringBuilder"__id*
+
+%0java.lang.StringBuilder*
+3*•
+1U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java'	 '(’“
+U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java'	 '(
+%4java.lang.String"4java.lang.StringBuilder#toString()Ljava/lang/String;*
+
+sbjava.lang.StringBuilder2
+toString()"q
+U
+KC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/IssueAnalyzer.java' '(
+
+%4java.lang.String:
+rdjava.io.ReaderB"
+logic.IssueAnalyzer
