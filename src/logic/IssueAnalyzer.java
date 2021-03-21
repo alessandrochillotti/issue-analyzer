@@ -48,8 +48,6 @@ public class IssueAnalyzer {
 			{String jsonText = readAll(rd);
 			
 			return new JSONObject(jsonText);
-		} finally {
-			is.close();
 		}
 	}
 
@@ -79,10 +77,11 @@ public class IssueAnalyzer {
 	 * 	This method allow to write into file csv the result of query JIRA.
 	 */
 	public void writeFile(Map<String, Integer> record) {
-		FileWriter fileWriter = null;
+		
 		try 
-		{
-			fileWriter = new FileWriter(FILE_NAME);
+		(
+			FileWriter fileWriter = new FileWriter(FILE_NAME);
+		){
 			fileWriter.append("Date, #Issue");
 			fileWriter.append("\n");
 			for (Map.Entry<String, Integer> entry : record.entrySet()) {
@@ -93,13 +92,6 @@ public class IssueAnalyzer {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				fileWriter.flush();
-				fileWriter.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 

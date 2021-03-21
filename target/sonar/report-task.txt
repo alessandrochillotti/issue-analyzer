@@ -3,5 +3,5 @@ projectKey=alessandrochillotti_issue-analyzer
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.18399
 dashboardUrl=https://sonarcloud.io/dashboard?id=alessandrochillotti_issue-analyzer
-ceTaskId=AXhWFt_zmZyf4aDHs1lA
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXhWFt_zmZyf4aDHs1lA
+ceTaskId=AXhWRuto9XtmJz8A2nlN
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXhWRuto9XtmJz8A2nlN
