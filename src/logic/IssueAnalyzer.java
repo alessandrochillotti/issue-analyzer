@@ -117,13 +117,13 @@ public class IssueAnalyzer {
 			JSONArray issues = json.getJSONArray("issues");
 
 			total = json.getInt("total");
-			if (i < WINDOW_SIZE) dates = new LocalDate[total];
+			if (j == WINDOW_SIZE) dates = new LocalDate[total];
 			
 			for (; i < total && i < j; i++) {
 				String datetime = issues.getJSONObject(i % WINDOW_SIZE).getJSONObject("fields").getString("resolutiondate").toString();
 
-				// Create array of LocalDate
-				dates[i] = LocalDate.parse(datetime.substring(0, 10), formatter);
+				// Create array of LocalDate ( if for bug sonar )
+				if(dates != null) dates[i] = LocalDate.parse(datetime.substring(0, 10), formatter);
 			}
 			
 		} while (i < total);
