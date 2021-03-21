@@ -42,9 +42,10 @@ public class IssueAnalyzer {
 	public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
 		InputStream is = new URL(url).openStream();
 		
-		try {
+		try (
 			BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-			String jsonText = readAll(rd);
+			)
+			{String jsonText = readAll(rd);
 			
 			return new JSONObject(jsonText);
 		} finally {
@@ -79,8 +80,8 @@ public class IssueAnalyzer {
 	 */
 	public void writeFile(Map<String, Integer> record) {
 		FileWriter fileWriter = null;
-		try {
-			// Name of CSV for output
+		try 
+		{
 			fileWriter = new FileWriter(FILE_NAME);
 			fileWriter.append("Date, #Issue");
 			fileWriter.append("\n");
