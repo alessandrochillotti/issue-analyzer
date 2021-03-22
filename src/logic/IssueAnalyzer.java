@@ -58,15 +58,20 @@ public class IssueAnalyzer {
 	public Map<String, Integer> prepareRecord(LocalDate[] dates) {
 
 		Map<String, Integer> record = new HashMap<>();
+		DateManager dateMan = new DateManager();
 		
+		LocalDate mostRecentDate = dateMan.mostRecentDate(dates);
+		LocalDate iterableDate = dateMan.oldestDate(dates);
+
+		// Prepare map with all keys of "yyyy-mm" from oldestDate to mostRecentDate
+		while(mostRecentDate.getMonthValue() != iterableDate.getMonthValue() || mostRecentDate.getYear()  != iterableDate.getYear()) {
+			record.put(iterableDate.toString().substring(0,7), 0);
+			iterableDate = dateMan.addOneMonth(iterableDate);
+		} 
+		record.put(mostRecentDate.toString().substring(0,7), 0);
+
 		for (int i = 0; i < dates.length; i++) {
-			// check if record contains date[i]
-			if (record.containsKey(dates[i].toString().substring(0, 7))) {
-				record.replace(dates[i].toString().substring(0, 7),
-						record.get(dates[i].toString().substring(0, 7)) + 1);
-			} else {
-				record.put(dates[i].toString().substring(0, 7), 1);
-			}
+			record.replace(dates[i].toString().substring(0, 7), record.get(dates[i].toString().substring(0, 7)) + 1);
 		}
 
 		return record;
@@ -94,7 +99,7 @@ public class IssueAnalyzer {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static void main(String[] args) throws IOException, JSONException, InvalidRemoteException,TransportException, GitAPIException, ParseException {
 		Integer j = 0;
 		Integer i = 0;
@@ -124,13 +129,14 @@ public class IssueAnalyzer {
 
 				// Create array of LocalDate ( if for bug sonar )
 				if(dates != null) dates[i] = LocalDate.parse(datetime.substring(0, 10), formatter);
+				
 			}
-			
+				
 		} while (i < total);
 		
 		issueAnalyzer.writeFile(issueAnalyzer.prepareRecord(dates));
 		
 		LOGGER.info("Success!");
 	}
-
+	
 }
