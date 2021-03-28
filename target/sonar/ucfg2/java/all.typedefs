@@ -292,7 +292,12 @@ CcomputeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)gjava.util.
 afterNodeInsertion(Z)(java.util.HashMap#afterNodeInsertion(Z)Vi
 )afterNodeAccess(Ljava/util/HashMap$Node;)<java.util.HashMap#afterNodeAccess(Ljava/util/HashMap$Node;)Vi
 )writeObject(Ljava/io/ObjectOutputStream;)<java.util.HashMap#writeObject(Ljava/io/ObjectOutputStream;)V#
-size()java.util.HashMap#size()IÛ
+size()java.util.HashMap#size()I©
+logic.DateManagerjava.lang.Object'
+<init>()logic.DateManager#<init>()Vw
+&mostRecentDate([Ljava/time/LocalDate;)Mlogic.DateManager#mostRecentDate([Ljava/time/LocalDate;)Ljava/time/LocalDate;o
+"oldestDate([Ljava/time/LocalDate;)Ilogic.DateManager#oldestDate([Ljava/time/LocalDate;)Ljava/time/LocalDate;o
+"addOneMonth(Ljava/time/LocalDate;)Ilogic.DateManager#addOneMonth(Ljava/time/LocalDate;)Ljava/time/LocalDate;Û
 #java.time.temporal.TemporalAccessorjava.lang.ObjectŒ
 )query(Ljava/time/temporal/TemporalQuery;)_java.time.temporal.TemporalAccessor#query(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;w
 'get(Ljava/time/temporal/TemporalField;)Ljava.time.temporal.TemporalAccessor#get(Ljava/time/temporal/TemporalField;)I™

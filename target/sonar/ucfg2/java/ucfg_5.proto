@@ -1,0 +1,64 @@
+
+Mlogic.DateManager#mostRecentDate([Ljava/time/LocalDate;)Ljava/time/LocalDate;S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java ( "6*¦
+3S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java$ ()©
+¦
+S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java$ (,
+%3java.time.LocalDate"
+__arrayGet* 
+
+datesjava.time.LocalDate[]*
+""—
+”
+S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java (,
+maxjava.time.LocalDate"__id*
+
+%3java.time.LocalDate*
+4
+1*£
+4S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java (©
+¦
+S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java (
+%1java.time.LocalDate"
+__arrayGet* 
+
+datesjava.time.LocalDate[]*
+""‘Ž
+S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java (
+%2boolean"@java.time.LocalDate#isAfter(Ljava/time/chrono/ChronoLocalDate;)Z*
+
+%1java.time.LocalDate*
+
+maxjava.time.LocalDate2+isAfter(Ljava/time/chrono/ChronoLocalDate;)*	
+3
+4
+1*ý
+6S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java (€
+~
+S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java (
+%0java.time.LocalDate"__id*
+""—
+”
+S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java ( 
+maxjava.time.LocalDate"__id*
+
+%0java.time.LocalDate*
+4
+1*Í
+1S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java	 ("s
+S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java (
+
+maxjava.time.LocalDate:
+datesjava.time.LocalDate[]B
+logic.DateManager

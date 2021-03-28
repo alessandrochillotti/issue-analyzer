@@ -1,0 +1,16 @@
+
+Ilogic.DateManager#addOneMonth(Ljava/time/LocalDate;)Ljava/time/LocalDate;S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java ("1*®
+1S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java	 (ßÜ
+S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java	 (
+%0java.time.LocalDate"6java.time.LocalDate#plusMonths(J)Ljava/time/LocalDate;*
+
+datejava.time.LocalDate*22plusMonths(J)"r
+S
+IC:/Users/aless/github-sandboxes/issue-analyzer/src/logic/DateManager.java (
+
+%0java.time.LocalDate:
+datejava.time.LocalDateB
+logic.DateManager

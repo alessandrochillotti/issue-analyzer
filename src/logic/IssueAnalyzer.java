@@ -6,18 +6,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.InvalidRemoteException;
-import org.eclipse.jgit.api.errors.TransportException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,11 +53,11 @@ public class IssueAnalyzer {
 	 */
 	public Map<String, Integer> prepareRecord(LocalDate[] dates) {
 
-		Map<String, Integer> record = new HashMap<>();
+		Map<String, Integer> record = new LinkedHashMap<>();
 		DateManager dateMan = new DateManager();
 		
-		LocalDate mostRecentDate = dateMan.mostRecentDate(dates);
-		LocalDate iterableDate = dateMan.oldestDate(dates);
+		LocalDate mostRecentDate = dateMan.mostRecentDate(dates, true);
+		LocalDate iterableDate = dateMan.oldestDate(dates, true);
 
 		// Prepare map with all keys of "yyyy-mm" from oldestDate to mostRecentDate
 		while(mostRecentDate.getMonthValue() != iterableDate.getMonthValue() || mostRecentDate.getYear()  != iterableDate.getYear()) {
@@ -73,7 +69,7 @@ public class IssueAnalyzer {
 		for (int i = 0; i < dates.length; i++) {
 			record.replace(dates[i].toString().substring(0, 7), record.get(dates[i].toString().substring(0, 7)) + 1);
 		}
-
+		
 		return record;
 
 	}
@@ -100,7 +96,7 @@ public class IssueAnalyzer {
 		}
 	}
 	
-	public static void main(String[] args) throws IOException, JSONException, InvalidRemoteException,TransportException, GitAPIException, ParseException {
+	public static void main(String[] args) throws IOException, JSONException {
 		Integer j = 0;
 		Integer i = 0;
 		Integer total = 0;
@@ -115,9 +111,9 @@ public class IssueAnalyzer {
 
 			// Prepare URL of query for fixed tickets
 			String url = "https://issues.apache.org/jira/rest/api/2/search?jql=project=%22" + PROJECT_NAME
-					+ "%22AND%22resolution%22=%22fixed%22&fields=resolutiondate,created&startAt=" + i.toString()
+					+ "%22AND%22resolution%22=%22fixed%22%20ORDER%20BY%20\"resolutiondate\"%20ASC&fields=resolutiondate,created&startAt=" + i.toString()
 					+ "&maxResults=" + j.toString();
-
+			
 			JSONObject json = readJsonFromUrl(url);
 			JSONArray issues = json.getJSONArray("issues");
 
@@ -125,7 +121,7 @@ public class IssueAnalyzer {
 			if (j == WINDOW_SIZE) dates = new LocalDate[total];
 			
 			for (; i < total && i < j; i++) {
-				String datetime = issues.getJSONObject(i % WINDOW_SIZE).getJSONObject("fields").getString("resolutiondate").toString();
+				String datetime = issues.getJSONObject(i % WINDOW_SIZE).getJSONObject("fields").getString("resolutiondate");
 
 				// Create array of LocalDate ( if for bug sonar )
 				if(dates != null) dates[i] = LocalDate.parse(datetime.substring(0, 10), formatter);

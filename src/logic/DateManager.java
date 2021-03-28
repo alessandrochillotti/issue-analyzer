@@ -4,9 +4,11 @@ import java.time.LocalDate;
 
 public class DateManager {
 
-	public LocalDate oldestDate (LocalDate[] dates) {
+	public LocalDate oldestDate (LocalDate[] dates, boolean ascOrdered) {
 		LocalDate min = LocalDate.MAX;
 
+		if(ascOrdered) return dates[0];
+		
 		for(int i = 0; i < dates.length; i++) {
 			if(dates[i].isBefore(min)) min = dates[i];
 		}
@@ -14,9 +16,11 @@ public class DateManager {
 		return min;
 	}
 	
-	public LocalDate mostRecentDate (LocalDate[] dates) {
+	public LocalDate mostRecentDate (LocalDate[] dates, boolean ascOrdered) {
 		LocalDate max = LocalDate.MIN;
 
+		if(ascOrdered) return dates[dates.length - 1];
+		
 		for(int i = 0; i < dates.length; i++) {
 			if (dates[i].isAfter(max)) max = dates[i];
 		}
